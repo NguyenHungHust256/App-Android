@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/splashview"
+    tools:context="com.example.ba_hung.findyardgolf.ui.activity.SplashView">
+
+    <TextView
+        android:id="@+id/nameApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="120dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Golf For You"
+        android:textColor="#ffff"
+        android:textSize="60sp"
+        android:textStyle="bold|italic" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameApp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="80dp"
+        app:indicatorColor="#b8dfdb"
+        app:indicatorName="BallSpinFadeLoaderIndicator" />
+</RelativeLayout>

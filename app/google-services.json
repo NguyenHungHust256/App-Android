@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "800775389245",
+    "firebase_url": "https://appfindyardgolf.firebaseio.com",
+    "project_id": "appfindyardgolf",
+    "storage_bucket": "appfindyardgolf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800775389245:android:8c0ed136e7e018d5",
+        "android_client_info": {
+          "package_name": "com.example.ba_hung.findyardgolf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "800775389245-kbgk5rvjq3sslcuk80472ascrff6107k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ba_hung.findyardgolf",
+            "certificate_hash": "535dd81f7a252d6b9c6087295202d6baae70bf43"
+          }
+        },
+        {
+          "client_id": "800775389245-19mbf1sf6rq9ctj8vrth2299snf8vfok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArqMXxFcJS4r74MnEF1DCb7M8L8V1hwew"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "800775389245-19mbf1sf6rq9ctj8vrth2299snf8vfok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

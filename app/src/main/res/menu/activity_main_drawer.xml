@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_infoUser"
+            android:icon="@drawable/ic_menu_user"
+            android:title="Thông tin người dùng" />
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_golfLove"
+            android:icon="@drawable/ic_menu_golflove"
+            android:title="Sân Golf yêu thích" />
+
+        <item
+            android:id="@+id/nav_huongdan"
+            android:icon="@drawable/ic_menu_huongdan"
+            android:title="Hướng dẫn sử dụng" />
+        <item
+            android:id="@+id/nav_capNhatThongTinCaNhan"
+            android:icon="@drawable/ic_edit_personal_information"
+            android:title="Cập nhật thông tin cá nhân" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_lienHe"
+                android:icon="@drawable/ic_menu_lienhe"
+                android:title="Liên hệ" />
+            <item
+                android:id="@+id/nav_thongTinApp"
+                android:icon="@drawable/ic_menu_infoapp"
+                android:title="Thông tin ứng dụng" />
+            <item
+                android:id="@+id/nav_dangXuat"
+                android:icon="@drawable/ic_menu_logout"
+                android:title="Đăng xuất" />
+        </menu>
+    </item>
+
+</menu>

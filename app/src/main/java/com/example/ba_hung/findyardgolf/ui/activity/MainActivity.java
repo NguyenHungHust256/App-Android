@@ -239,4 +239,6 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "Bạn chưa kết nối mạng.", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

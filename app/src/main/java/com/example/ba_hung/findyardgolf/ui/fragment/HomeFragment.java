@@ -4,6 +4,7 @@ package com.example.ba_hung.findyardgolf.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         mData = FirebaseDatabase.getInstance().getReference();
         AnhXa();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 //        layDuLieuChoData();
         xuLySearchGolf();
         btnMienBac.setOnClickListener(this);
@@ -142,6 +144,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
     private void xuLySearchGolf() {
+
         searchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
             @Override
             public void onSearchTextChanged(String oldQuery, String newQuery) {

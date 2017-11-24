@@ -77,9 +77,9 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener, O
                         break;
                     case MotionEvent.ACTION_UP:
                         xUp = motionEvent.getX(); // lay toan do nguoi dung khi nhac tay ra
-                        if (xDown > xUp && y <= 213) {
+                        if (xDown > xUp && y <= 250) {
                             mViewFlipper.showNext();
-                        } else if (xDown < xUp && y <= 213) {
+                        } else if (xDown < xUp && y <= 250) {
                             mViewFlipper.showPrevious();
                         }
                         break;

@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.ListItem;
 
 
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import android.widget.Spinner;
 
 import com.example.ba_hung.findyardgolf.R;
 import com.example.ba_hung.findyardgolf.bean.SanGolfModel;
-import com.example.ba_hung.findyardgolf.ui.adapter.SanGolfAdapter;
+import com.example.ba_hung.findyardgolf.ui.adapter.YardGolfAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,22 +32,22 @@ import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DanhSachFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class ListItemFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private DatabaseReference mData;
     private View mView;
     RecyclerView rvcSanGolf;
     Spinner spnTinh;
     String danhDauMien;
-    SanGolfAdapter adapter;
+    YardGolfAdapter adapter;
     ArrayList<SanGolfModel> datas = new ArrayList<>();
     ArrayList<String> dataTinh = new ArrayList<>();
 
 
-    public DanhSachFragment() {
+    public ListItemFragment() {
 
     }
 
-    public DanhSachFragment(String danhDauMien) {
+    public ListItemFragment(String danhDauMien) {
         this.danhDauMien = danhDauMien;
     }
 
@@ -85,7 +85,7 @@ public class DanhSachFragment extends Fragment implements AdapterView.OnItemSele
     }
 
     private void RecyclerViewKhiAnButton(ArrayList<SanGolfModel> datas) {
-        adapter= new SanGolfAdapter(getActivity(), datas);
+        adapter= new YardGolfAdapter(getActivity(), datas);
         RecyclerView.LayoutManager giaoDien = new LinearLayoutManager(getActivity());
         rvcSanGolf.setLayoutManager(giaoDien);
         ScaleInAnimationAdapter scale = new ScaleInAnimationAdapter(adapter);

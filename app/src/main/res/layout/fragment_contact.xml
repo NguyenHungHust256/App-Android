@@ -5,7 +5,7 @@
     android:background="@drawable/gradient"
     android:orientation="vertical"
     android:weightSum="16"
-    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.LienHeFragment">
+    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.Contact.ContactFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

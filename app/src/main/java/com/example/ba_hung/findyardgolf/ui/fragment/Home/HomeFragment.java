@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.Home;
 
 
 import android.os.Bundle;
@@ -17,6 +17,8 @@ import com.example.ba_hung.findyardgolf.R;
 import com.example.ba_hung.findyardgolf.bean.SanGolfModel;
 import com.example.ba_hung.findyardgolf.controller.Suggestion;
 import com.example.ba_hung.findyardgolf.ui.activity.MainActivity;
+import com.example.ba_hung.findyardgolf.ui.fragment.ListItem.ListItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.XemItemFragment;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -209,13 +211,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btnMienBac) {
-            ((MainActivity) getActivity()).themFragment(R.id.myLayout, new DanhSachFragment("Miền Bắc"));
+            ((MainActivity) getActivity()).themFragment(R.id.myLayout, new ListItemFragment("Miền Bắc"));
 
         } else if (view.getId() == R.id.btnMienTrung)
         {
-            ((MainActivity) getActivity()).themFragment(R.id.myLayout, new DanhSachFragment("Miền Trung"));
+            ((MainActivity) getActivity()).themFragment(R.id.myLayout, new ListItemFragment("Miền Trung"));
         } else if (view.getId() == R.id.btnMienNam) {
-            ((MainActivity) getActivity()).themFragment(R.id.myLayout, new DanhSachFragment("Miền Nam"));
+            ((MainActivity) getActivity()).themFragment(R.id.myLayout, new ListItemFragment("Miền Nam"));
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.SeeItem;
 
 
 import android.Manifest;
@@ -38,7 +38,7 @@ import java.util.Arrays;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChiTietFragment extends Fragment implements View.OnClickListener, OnLikeListener {
+public class InfoEachItemFragment extends Fragment implements View.OnClickListener, OnLikeListener {
     private View mView;
     private ImageView img1, img2, img3;
     private ViewFlipper mViewFlipper;
@@ -53,11 +53,11 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener, O
     private String phone;
     SanGolfModel sanGolf = new SanGolfModel();
 
-    public ChiTietFragment() {
+    public InfoEachItemFragment() {
 
     }
 
-    public ChiTietFragment(SanGolfModel sanGolf) {
+    public InfoEachItemFragment(SanGolfModel sanGolf) {
         this.sanGolf = sanGolf;
     }
 
@@ -66,7 +66,7 @@ public class ChiTietFragment extends Fragment implements View.OnClickListener, O
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_chi_tiet, container, false);
+        mView = inflater.inflate(R.layout.fragment_info_each_item, container, false);
         mView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {

@@ -21,7 +21,7 @@ import com.bumptech.glide.Glide;
 import com.example.ba_hung.findyardgolf.R;
 import com.example.ba_hung.findyardgolf.bean.SanGolfModel;
 import com.example.ba_hung.findyardgolf.ui.activity.MainActivity;
-import com.example.ba_hung.findyardgolf.ui.fragment.XemItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.XemItemFragment;
 
 import java.util.ArrayList;
 
@@ -29,12 +29,12 @@ import java.util.ArrayList;
  * Created by ba-hung on 22/10/2017.
  **/
 
-public class SanGolfAdapter extends RecyclerView.Adapter<SanGolfAdapter.ViewHolder> {
+public class YardGolfAdapter extends RecyclerView.Adapter<YardGolfAdapter.ViewHolder> {
     private Context context;
     private ArrayList<SanGolfModel> datas;
 
 
-    public SanGolfAdapter(Context context, ArrayList<SanGolfModel> datas) {
+    public YardGolfAdapter(Context context, ArrayList<SanGolfModel> datas) {
         this.context = context;
         this.datas = datas;
 

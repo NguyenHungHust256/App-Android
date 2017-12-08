@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.YardGolfUserLike;
 
 
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.ba_hung.findyardgolf.R;
 import com.example.ba_hung.findyardgolf.bean.SanGolfModel;
-import com.example.ba_hung.findyardgolf.ui.adapter.SanGolfAdapter;
+import com.example.ba_hung.findyardgolf.ui.adapter.YardGolfAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -31,10 +31,10 @@ import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SanGolfYeuThichFragment extends Fragment {
+public class YardGolfUserLikeFragment extends Fragment {
     private RecyclerView rcvSanGolfYeuThich;
     private View mView;
-    private SanGolfAdapter adapter;
+    private YardGolfAdapter adapter;
     private FirebaseAuth mAuth;
     private DatabaseReference mData;
     private ArrayList nhungSanGolfDuocLike  = new ArrayList();
@@ -44,14 +44,14 @@ public class SanGolfYeuThichFragment extends Fragment {
     private String[] mienTrung = {"Bình Thuận", "Bình Định", "Nghệ An", "Quảng Nam", "Thừa Thiên Huế", "Đà Nẵng"};
     private String[] mienNam = {"Bình Dương", "Khánh Hòa", "Kiên Giang", "Lâm Đồng", "TP Hồ Chí Minh", "Vũng Tàu", "Đồng Nai"};
 
-    public SanGolfYeuThichFragment() {
+    public YardGolfUserLikeFragment() {
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_san_golf_yeu_thich, container, false);
+        mView = inflater.inflate(R.layout.fragment_yard_golf_like, container, false);
         return mView;
     }
 
@@ -63,7 +63,7 @@ public class SanGolfYeuThichFragment extends Fragment {
 
         rcvSanGolfYeuThich = mView.findViewById(R.id.rcvSanGolfYeuThich);
 
-        adapter = new SanGolfAdapter(getActivity(), datas);
+        adapter = new YardGolfAdapter(getActivity(), datas);
         RecyclerView.LayoutManager giaoDien = new LinearLayoutManager(getActivity());
         rcvSanGolfYeuThich.setLayoutManager(giaoDien);
         ScaleInAnimationAdapter scale = new ScaleInAnimationAdapter(adapter);

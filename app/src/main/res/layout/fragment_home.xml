@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundhome"
-    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.HomeFragment">
+    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.Home.HomeFragment">
 
     <TextView
         android:id="@+id/txtKhuVucSanGolf"

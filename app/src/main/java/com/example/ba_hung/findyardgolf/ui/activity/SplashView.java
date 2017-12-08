@@ -7,8 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.ba_hung.findyardgolf.R;
 import com.crashlytics.android.Crashlytics;
+import com.example.ba_hung.findyardgolf.R;
+
 import io.fabric.sdk.android.Fabric;
 
 public class SplashView extends AppCompatActivity {
@@ -21,6 +22,10 @@ public class SplashView extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.splash_view);
+        chuyenManHinhVaoDangNhap();
+    }
+
+    private void chuyenManHinhVaoDangNhap() {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

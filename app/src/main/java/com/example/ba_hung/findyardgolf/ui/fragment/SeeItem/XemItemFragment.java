@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.SeeItem;
 
 
 import android.os.Bundle;

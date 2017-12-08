@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.InfoApp;
 
 
 import android.os.Bundle;
@@ -13,17 +13,17 @@ import com.example.ba_hung.findyardgolf.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ThongTinUngDungFragment extends Fragment {
+public class InfoAppFragment extends Fragment {
 
 
-    public ThongTinUngDungFragment() {
+    public InfoAppFragment() {
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_thong_tin_ung_dung, container, false);
+        return inflater.inflate(R.layout.fragment_info_app, container, false);
     }
 
     @Override

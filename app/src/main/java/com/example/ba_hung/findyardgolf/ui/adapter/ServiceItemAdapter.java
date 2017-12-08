@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,11 +19,11 @@ import java.util.ArrayList;
  * Created by ba-hung on 25/10/2017.
  **/
 
-public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder> {
+public class ServiceItemAdapter extends RecyclerView.Adapter<ServiceItemAdapter.ViewHolder> {
     private Context context;
     ArrayList<String> tenDichVu = new ArrayList<>();
 
-    public DichVuAdapter(Context context, ArrayList<String> tenDichVu) {
+    public ServiceItemAdapter(Context context, ArrayList<String> tenDichVu) {
         this.context = context;
         this.tenDichVu = tenDichVu;
     }
@@ -33,7 +32,7 @@ public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(this.context);
-        view = inflater.inflate(R.layout.custom_dich_vu, parent, false);
+        view = inflater.inflate(R.layout.custom_service, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }

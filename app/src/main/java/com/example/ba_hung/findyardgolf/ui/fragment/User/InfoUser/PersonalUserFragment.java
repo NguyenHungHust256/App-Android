@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.User.InfoUser;
 
 
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.ba_hung.findyardgolf.R;
 import com.example.ba_hung.findyardgolf.ui.activity.MainActivity;
+import com.example.ba_hung.findyardgolf.ui.fragment.Home.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ThongTinUserFragment extends Fragment {
+public class PersonalUserFragment extends Fragment {
     private  View mView;
     private TextView txtName, txtPhone, txtDiaChi;
     private Button btnOk;
@@ -31,14 +32,14 @@ public class ThongTinUserFragment extends Fragment {
     private FirebaseAuth mAuth;
     private String phone, name, diachi;
 
-    public ThongTinUserFragment() {
+    public PersonalUserFragment() {
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_thong_tin_user, container, false);
+        mView = inflater.inflate(R.layout.fragment_info_user, container, false);
         return mView;
     }
 

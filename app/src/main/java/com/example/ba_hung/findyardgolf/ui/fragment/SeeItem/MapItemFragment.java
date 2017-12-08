@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.SeeItem;
 
 
 import android.os.Bundle;
@@ -22,25 +22,25 @@ import com.google.android.gms.maps.model.MarkerOptions;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BanDoFragment extends Fragment implements OnMapReadyCallback {
+public class MapItemFragment extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mGoogleMap;
     private MapView mMapView;
     private View mView;
     private SanGolfModel sanGolf;
 
-    public BanDoFragment() {
+    public MapItemFragment() {
 
     }
 
-    public BanDoFragment(SanGolfModel sanGolf){
+    public MapItemFragment(SanGolfModel sanGolf){
         this.sanGolf = sanGolf;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_ban_do, container, false);
+        mView = inflater.inflate(R.layout.fragment_map, container, false);
         return mView;
     }
 
@@ -53,12 +53,9 @@ public class BanDoFragment extends Fragment implements OnMapReadyCallback {
             mMapView.onResume();
             mMapView.getMapAsync(this);
         }
-
-
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
         MapsInitializer.initialize(getContext());
         mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -69,6 +66,7 @@ public class BanDoFragment extends Fragment implements OnMapReadyCallback {
         CameraPosition cameraPosition = CameraPosition.builder().target(new LatLng(sanGolf.getLatitude(), sanGolf.getLongtitude()))
                 .zoom(15).bearing(0).tilt(45).build();
         mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
 
 
     }

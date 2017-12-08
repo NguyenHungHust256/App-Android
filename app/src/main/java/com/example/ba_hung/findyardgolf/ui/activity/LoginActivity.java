@@ -43,6 +43,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String SDT;
     private boolean check = true;
 
+    public static final Pattern VALID_PHONE_REGEX =
+            Pattern.compile("(\\+84)\\d{9,10}", Pattern.CASE_INSENSITIVE);
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -57,24 +60,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        AnhXa();
-
-        mData = FirebaseDatabase.getInstance().getReference();
-        mAuth = FirebaseAuth.getInstance();
-//
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                if (firebaseAuth.getCurrentUser() != null) {
-//                    OpenMainActivity();
-//                }
-//                else {
-//                    return;
-//                }
-//            }
-//        };
+        anhXa();
+        khoiTaoQuyenTruyNhap();
         btnLayMa.setOnClickListener(this);
         btnDangNhap.setOnClickListener(this);
+    }
+
+    private void khoiTaoQuyenTruyNhap() {
+        mData = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -88,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
         finish();
     }
-    private void AnhXa() {
+    private void anhXa() {
         edtSDT = findViewById(R.id.edtSDT);
         edtVertify = findViewById(R.id.edtVertify);
         btnDangNhap = findViewById(R.id.btnDangNhap);
@@ -156,8 +150,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } else {
             signInWithCredential(PhoneAuthProvider.getCredential(mVerificationId, code));
         }
-
-
     }
 
     private void signInWithCredential(PhoneAuthCredential phoneAuthCredential) {
@@ -167,25 +159,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                            themTaiKhoanVaoFireBase();
-                            final Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (check) {
-                                        Log.d("check", check + "");
-                                        UserModel user = new UserModel(SDT);
-                                        mData.child("User").child(SDT).setValue(user);
-                                    }
-                                }
-                            }, 1000);
-//                            final Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    OpenMainActivity();
-                                }
-                            }, 2000);
+                            kiemTraSuXuatHienCuaTaiKhoan();
+                            themTaiKhoanVaoDataVaMoApp();
 
                         } else {
                             Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
@@ -196,8 +171,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    private void themTaiKhoanVaoDataVaMoApp() {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (check) {
+                    Log.d("check", check + "");
+                    UserModel user = new UserModel(SDT);
+                    mData.child("User").child(SDT).setValue(user);
+                }
+            }
+        }, 1000);
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                OpenMainActivity();
+            }
+        }, 2000);
+    }
+
     // comment
-    private void themTaiKhoanVaoFireBase() {
+    private void kiemTraSuXuatHienCuaTaiKhoan() {
         mData.child("User").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -227,9 +223,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
-
-    public static final Pattern VALID_PHONE_REGEX =
-            Pattern.compile("(\\+84)\\d{9,10}", Pattern.CASE_INSENSITIVE);
 
 
     public static boolean validate(String phoneNumberStr) {

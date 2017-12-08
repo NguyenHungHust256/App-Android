@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.XemItemFragment">
+    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.XemItemFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -38,7 +38,6 @@
             app:tabTextColor="@android:color/white"
             android:layout_height="wrap_content" />
         </android.support.design.widget.AppBarLayout>
-
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"

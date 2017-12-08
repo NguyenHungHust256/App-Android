@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.User.UpdateInfoUser;
 
 
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.ba_hung.findyardgolf.R;
 import com.example.ba_hung.findyardgolf.ui.activity.MainActivity;
+import com.example.ba_hung.findyardgolf.ui.fragment.Home.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CapNhatThongTinCaNhan extends Fragment implements View.OnClickListener {
+public class UpdatePersonalInfoFragment extends Fragment implements View.OnClickListener {
     private static final int PICK_IMAGE = 100;
     private View mView;
     private TextView txtPhone;
@@ -30,15 +31,14 @@ public class CapNhatThongTinCaNhan extends Fragment implements View.OnClickListe
     private DatabaseReference mData;
     private FirebaseAuth mAuth;
     private String phoneNumber;
-    public CapNhatThongTinCaNhan() {
-        // Required empty public constructor
+    public UpdatePersonalInfoFragment() {
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView =  inflater.inflate(R.layout.fragment_cap_nhat_thong_tin_ca_nhan, container, false);
+        mView =  inflater.inflate(R.layout.fragment_update_user_info, container, false);
         return mView;
     }
 
@@ -47,7 +47,6 @@ public class CapNhatThongTinCaNhan extends Fragment implements View.OnClickListe
         super.onViewCreated(view, savedInstanceState);
         mData = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-
         anhXa();
         phoneNumber = mAuth.getCurrentUser().getPhoneNumber().toString();
         txtPhone.setText(phoneNumber);

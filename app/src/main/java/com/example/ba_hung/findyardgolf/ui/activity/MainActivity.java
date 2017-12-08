@@ -25,14 +25,14 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ba_hung.findyardgolf.R;
-import com.example.ba_hung.findyardgolf.ui.fragment.CapNhatThongTinCaNhan;
-import com.example.ba_hung.findyardgolf.ui.fragment.DanhSachFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.HomeFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.LienHeFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.SanGolfYeuThichFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.ThongTinUngDungFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.ThongTinUserFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.XemItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.User.UpdateInfoUser.UpdatePersonalInfoFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.ListItem.ListItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.Home.HomeFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.Contact.ContactFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.YardGolfUserLike.YardGolfUserLikeFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.InfoApp.InfoAppFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.User.InfoUser.PersonalUserFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.XemItemFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -164,13 +164,13 @@ public class MainActivity extends AppCompatActivity
             String name = fragment.getClass().getName();
             getSupportFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
             System.exit(0);
-        } else if (fragment instanceof DanhSachFragment) {
+        } else if (fragment instanceof ListItemFragment) {
             String name = fragment.getClass().getName();
             getSupportFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         } else if (fragment instanceof XemItemFragment) {
             String name = fragment.getClass().getName();
             getSupportFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        }  else if (fragment instanceof SanGolfYeuThichFragment) {
+        }  else if (fragment instanceof YardGolfUserLikeFragment) {
             String name = fragment.getClass().getName();
             getSupportFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         } else {
@@ -189,8 +189,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -212,16 +210,16 @@ public class MainActivity extends AppCompatActivity
                 finish();
             }
         } else if (id == R.id.nav_lienHe) {
-            themFragment(R.id.myLayout, new LienHeFragment());
+            themFragment(R.id.myLayout, new ContactFragment());
         } else if (id == R.id.nav_thongTinApp) {
-            themFragment(R.id.myLayout, new ThongTinUngDungFragment());
+            themFragment(R.id.myLayout, new InfoAppFragment());
 
         } else if (id == R.id.nav_golfLove) {
-            themFragment(R.id.myLayout, new SanGolfYeuThichFragment());
+            themFragment(R.id.myLayout, new YardGolfUserLikeFragment());
         } else if (id == R.id.nav_capNhatThongTinCaNhan) {
-            themFragment(R.id.myLayout, new CapNhatThongTinCaNhan());
+            themFragment(R.id.myLayout, new UpdatePersonalInfoFragment());
         } else if(id==R.id.nav_infoUser){
-            themFragment(R.id.myLayout, new ThongTinUserFragment());
+            themFragment(R.id.myLayout, new PersonalUserFragment());
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

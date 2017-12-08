@@ -5,9 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.ba_hung.findyardgolf.bean.SanGolfModel;
-import com.example.ba_hung.findyardgolf.ui.fragment.BanDoFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.ChiTietFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.DichVuFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.MapItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.InfoEachItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.ServiceItemFragment;
 
 /**
  * Created by ba-hung on 09/10/2017.
@@ -26,15 +26,15 @@ public class MyPagerAdapter  extends FragmentPagerAdapter {
         Fragment fragment = null;
         if (position == 0)
         {
-            fragment = new ChiTietFragment(sanGolfModel);
+            fragment = new InfoEachItemFragment(sanGolfModel);
         }
         else if (position == 1)
         {
-            fragment = new DichVuFragment(sanGolfModel);
+            fragment = new ServiceItemFragment(sanGolfModel);
         }
         else if (position == 2)
         {
-            fragment = new BanDoFragment(sanGolfModel);
+            fragment = new MapItemFragment(sanGolfModel);
         }
         return fragment;
     }

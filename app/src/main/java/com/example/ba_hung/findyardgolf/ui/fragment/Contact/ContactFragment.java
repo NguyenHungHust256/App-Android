@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment;
+package com.example.ba_hung.findyardgolf.ui.fragment.Contact;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.example.ba_hung.findyardgolf.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LienHeFragment extends Fragment {
+public class ContactFragment extends Fragment {
 
 
-    public LienHeFragment() {
+    public ContactFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class LienHeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lien_he, container, false);
+        return inflater.inflate(R.layout.fragment_contact, container, false);
     }
 
 }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient"
-    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.ThongTinUserFragment">
+    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.User.InfoUser.PersonalUserFragment">
 
 
     <TextView

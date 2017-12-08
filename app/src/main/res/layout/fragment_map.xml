@@ -2,12 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.SanGolfYeuThichFragment">
+    tools:context="com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.MapItemFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcvSanGolfYeuThich"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+    </com.google.android.gms.maps.MapView>
 
 </FrameLayout>

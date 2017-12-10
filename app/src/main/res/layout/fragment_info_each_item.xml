@@ -31,12 +31,14 @@
                     android:layout_height="match_parent"
                     android:scaleType="fitXY" />
                 <ImageView
+                    android:id="@+id/back"
                     android:src="@drawable/backpage"
                     android:layout_centerVertical="true"
                     android:layout_width="30dp"
                     android:layout_marginLeft="10dp"
                     android:layout_height="30dp" />
                 <ImageView
+                    android:id="@+id/next"
                     android:src="@drawable/nextpage"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
@@ -56,12 +58,14 @@
                     android:layout_height="match_parent"
                     android:scaleType="fitXY" />
                 <ImageView
+                    android:id="@+id/back1"
                     android:src="@drawable/backpage"
                     android:layout_centerVertical="true"
                     android:layout_width="30dp"
                     android:layout_marginLeft="10dp"
                     android:layout_height="30dp" />
                 <ImageView
+                    android:id="@+id/next1"
                     android:src="@drawable/nextpage"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
@@ -80,12 +84,14 @@
                     android:layout_height="match_parent"
                     android:scaleType="fitXY" />
                 <ImageView
+                    android:id="@+id/back2"
                     android:src="@drawable/backpage"
                     android:layout_centerVertical="true"
                     android:layout_width="30dp"
                     android:layout_marginLeft="10dp"
                     android:layout_height="30dp" />
                 <ImageView
+                    android:id="@+id/next2"
                     android:src="@drawable/nextpage"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
@@ -282,7 +288,7 @@
                         android:autoLink="web"
                         android:gravity="center_vertical"
                         android:text="http://yendunggolf.vn/"
-                        android:textColor="#0f76e4" />
+                        android:textColor="#0044b1" />
 
                 </LinearLayout>
             </LinearLayout>

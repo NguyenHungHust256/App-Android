@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#359c3a"
+    android:background="@drawable/anhnenlogin"
     android:orientation="vertical"
     android:weightSum="4"
     tools:context="com.example.ba_hung.findyardgolf.ui.activity.LoginActivity">
@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="serif"
         android:gravity="center"
-        android:text="Đăng nhập"
+
         android:textColor="#ffff"
         android:textSize="60sp"
         android:textStyle="bold|italic" />

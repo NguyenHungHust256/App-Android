@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,7 +14,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,14 +23,14 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ba_hung.findyardgolf.R;
-import com.example.ba_hung.findyardgolf.ui.fragment.User.UpdateInfoUser.UpdatePersonalInfoFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.ListItem.ListItemFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.Home.HomeFragment;
 import com.example.ba_hung.findyardgolf.ui.fragment.Contact.ContactFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.YardGolfUserLike.YardGolfUserLikeFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.Home.HomeFragment;
 import com.example.ba_hung.findyardgolf.ui.fragment.InfoApp.InfoAppFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.User.InfoUser.PersonalUserFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.ListItem.ListItemFragment;
 import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.XemItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.User.InfomationUser.PersonalUserFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.User.UpdateInfoUser.UpdatePersonalInfoFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.YardGolfUserLike.YardGolfUserLikeFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -47,7 +45,8 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private ImageView imgAvatar;
     private TextView txtNameUser, txtPhoneNumber;
-    String img , name ;
+    String img, name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,15 +60,14 @@ public class MainActivity extends AppCompatActivity
         chinhHeader();
     }
 
-    private void chinhHeader() {
+    public void chinhHeader() {
         final String phone = mAuth.getCurrentUser().getPhoneNumber().toString();
-        Log.d("phone", phone);
+        txtPhoneNumber.setText(phone);
         mData.child("User").child(phone).child("avatar").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 img = dataSnapshot.getValue().toString();
-                Log.d("check img ", img+"");
-
+                Glide.with(MainActivity.this).load(img).into(imgAvatar);
             }
 
             @Override
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 name = dataSnapshot.getValue().toString();
-
+                txtNameUser.setText(name);
             }
 
             @Override
@@ -89,22 +87,12 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Glide.with(MainActivity.this).load(img).into(imgAvatar);
-                txtPhoneNumber.setText(phone);
-                txtNameUser.setText(name);
-            }
-        }, 1500);
-
     }
 
     private void AnhXa() {
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        View header=navigationView.getHeaderView(0);
+        View header = navigationView.getHeaderView(0);
         txtNameUser = header.findViewById(R.id.nameUser);
         txtPhoneNumber = header.findViewById(R.id.phoneUser);
         imgAvatar = header.findViewById(R.id.imgAvatarUser);
@@ -114,14 +102,15 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView =  findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     public void themFragment(int id, Fragment fragment) {
@@ -134,9 +123,12 @@ public class MainActivity extends AppCompatActivity
         transaction.addToBackStack(name);
         transaction.commit();
     }
+
     public void themVaChinhHeaderFragment(int id, Fragment fragment) {
         xacDinhKetNoiMangHayChua();
+
         chinhHeader();
+
         String name = fragment.getClass().getName();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -170,7 +162,7 @@ public class MainActivity extends AppCompatActivity
         } else if (fragment instanceof XemItemFragment) {
             String name = fragment.getClass().getName();
             getSupportFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        }  else if (fragment instanceof YardGolfUserLikeFragment) {
+        } else if (fragment instanceof YardGolfUserLikeFragment) {
             String name = fragment.getClass().getName();
             getSupportFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         } else {
@@ -218,7 +210,7 @@ public class MainActivity extends AppCompatActivity
             themFragment(R.id.myLayout, new YardGolfUserLikeFragment());
         } else if (id == R.id.nav_capNhatThongTinCaNhan) {
             themFragment(R.id.myLayout, new UpdatePersonalInfoFragment());
-        } else if(id==R.id.nav_infoUser){
+        } else if (id == R.id.nav_infoUser) {
             themFragment(R.id.myLayout, new PersonalUserFragment());
         }
 
@@ -226,6 +218,7 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     public void xacDinhKetNoiMangHayChua() {
         ConnectivityManager cm =
                 (ConnectivityManager) (MainActivity.this).getSystemService(Context.CONNECTIVITY_SERVICE);

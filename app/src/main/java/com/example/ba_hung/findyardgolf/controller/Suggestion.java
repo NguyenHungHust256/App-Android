@@ -15,20 +15,12 @@ public class Suggestion implements SearchSuggestion{
 
     private String mName;
     private SanGolfModel sanGolf;
-    private boolean mIsHistory = false;
 
     public Suggestion(String suggestion, SanGolfModel sanGolf) {
         mName= suggestion.toLowerCase();
         this.sanGolf = sanGolf;
     }
 
-    public void setIsHistory(boolean isHistory) {
-        this.mIsHistory = isHistory;
-    }
-
-    public boolean getIsHistory() {
-        return this.mIsHistory;
-    }
 
     public String getName() {
         return mName;

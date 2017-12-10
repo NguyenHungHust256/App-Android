@@ -11,7 +11,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -40,12 +39,12 @@ import java.util.Arrays;
  */
 public class InfoEachItemFragment extends Fragment implements View.OnClickListener, OnLikeListener {
     private View mView;
-    private ImageView img1, img2, img3;
+    private ImageView img1, img2, img3, back, back1, back2, next, next1, next2;
     private ViewFlipper mViewFlipper;
     private Button btnBooking;
     private LikeButton btnLike;
-    private float xDown, xUp;
-    private float y;
+    //    private float xDown, xUp;
+//    private float y;
     private TextView txtGia, txtMoTa, txtWeb, txtDiaChi, txtTenSanGolf;
     private RatingBar ratingBar;
     private FirebaseAuth mAuth;
@@ -67,33 +66,32 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_info_each_item, container, false);
-        mView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                y = motionEvent.getY();
-                switch (motionEvent.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        xDown = motionEvent.getX(); //Lay toa do khi nguoi dung cham tay xuong
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        xUp = motionEvent.getX(); // lay toan do nguoi dung khi nhac tay ra
-                        if (xDown > xUp && y <= 250) {
-                            mViewFlipper.showNext();
-                        } else if (xDown < xUp && y <= 250) {
-                            mViewFlipper.showPrevious();
-                        }
-                        break;
-                }
-                return true;
-            }
-        });
+//        mView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                y = motionEvent.getY();
+//                switch (motionEvent.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        xDown = motionEvent.getX(); //Lay toa do khi nguoi dung cham tay xuong
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        xUp = motionEvent.getX(); // lay toan do nguoi dung khi nhac tay ra
+//                        if (xDown > xUp && y <= 250) {
+//                            mViewFlipper.showNext();
+//                        } else if (xDown < xUp && y <= 250) {
+//                            mViewFlipper.showPrevious();
+//                        }
+//                        break;
+//                }
+//                return true;
+//            }
+//        });
         return mView;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         mData = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         phone = mAuth.getCurrentUser().getPhoneNumber().toString();
@@ -109,6 +107,24 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
         xuLyNutLikeSangHayTat();
         btnBooking.setOnClickListener(this);
         btnLike.setOnLikeListener(this);
+
+        back.setClickable(true);
+        back.setOnClickListener(this);
+
+        back1.setClickable(true);
+        back1.setOnClickListener(this);
+
+        back2.setClickable(true);
+        back2.setOnClickListener(this);
+
+        next.setClickable(true);
+        next.setOnClickListener(this);
+
+        next1.setClickable(true);
+        next1.setOnClickListener(this);
+
+        next2.setClickable(true);
+        next2.setOnClickListener(this);
     }
 
     private void xuLyNutLikeSangHayTat() {
@@ -182,6 +198,14 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
         txtTenSanGolf = mView.findViewById(R.id.txtTenSanGolf);
         btnLike = mView.findViewById(R.id.btnLike);
         ratingBar = mView.findViewById(R.id.ratingOneGolf);
+        back = mView.findViewById(R.id.back);
+        back1 = mView.findViewById(R.id.back1);
+        back2 = mView.findViewById(R.id.back2);
+        next = mView.findViewById(R.id.next);
+        next1 = mView.findViewById(R.id.next1);
+        next2 = mView.findViewById(R.id.next2);
+
+
     }
 
     @Override
@@ -194,6 +218,10 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
                 return;
             }
             (getActivity()).startActivity(intent);
+        } else if (view.getId() == R.id.back || view.getId() == R.id.back1 || view.getId() == R.id.back2) {
+            mViewFlipper.showPrevious();
+        } else if (view.getId() == R.id.next || view.getId() == R.id.next1 ||view.getId() == R.id.next2) {
+            mViewFlipper.showNext();
         }
     }
 

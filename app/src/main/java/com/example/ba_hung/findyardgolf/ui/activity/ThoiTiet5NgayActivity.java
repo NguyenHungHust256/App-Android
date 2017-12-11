@@ -34,8 +34,8 @@ public class ThoiTiet5NgayActivity extends AppCompatActivity {
     private ImageView imgBack;
     private TextView txtName;
     private ListView lv;
-    ThoiTietAdapter thoiTietAdapter;
-    ArrayList<ThoiTietModel> datas;
+    private ThoiTietAdapter thoiTietAdapter;
+    private ArrayList<ThoiTietModel> datas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,7 @@ public class ThoiTiet5NgayActivity extends AppCompatActivity {
         Intent intent = getIntent();
        SanGolfModel sanGolfModel = (SanGolfModel) intent.getSerializableExtra("name");
 
-        get7DayData(sanGolfModel);
+        get5DayData(sanGolfModel);
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +69,7 @@ public class ThoiTiet5NgayActivity extends AppCompatActivity {
         lv = findViewById(R.id.listview);
     }
 
-    public void get7DayData(final SanGolfModel data) {
+    public void get5DayData(final SanGolfModel data) {
         String url = "http://api.openweathermap.org/data/2.5/forecast?lat="+data.getLatitude()+"&lon="+data.getLongtitude()+"&units=metric&appid=1fbe106423cd558f25e74141f0ad4778";
         RequestQueue requestQueue = Volley.newRequestQueue(ThoiTiet5NgayActivity.this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

@@ -2,7 +2,7 @@ package com.example.ba_hung.findyardgolf.bean;
 
 /**
  * Created by ba-hung on 11/12/2017.
- */
+ **/
 
 public class ThoiTietModel {
     private String day;

@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button btnLayMa, btnDangNhap;
     private String mVerificationId;
     private FirebaseAuth mAuth;
-    FirebaseAuth.AuthStateListener mAuthListener;
+//    FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mData;
     private String SDT;
     private boolean check = true;

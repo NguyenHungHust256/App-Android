@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 /**
  * Created by ba-hung on 11/12/2017.
- */
+ **/
 
 public class ThoiTietAdapter extends BaseAdapter {
-    Context context;
-    ArrayList<ThoiTietModel> datas;
+    private Context context;
+    private ArrayList<ThoiTietModel> datas;
 
     public ThoiTietAdapter(Context context, ArrayList<ThoiTietModel> datas) {
         this.context = context;

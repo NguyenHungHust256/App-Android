@@ -6,10 +6,10 @@ import android.widget.ProgressBar;
 
 /**
  * Created by ba-hung on 11/12/2017.
- */
+ **/
 
 public class ProgressLoading {
-    View mView;
+    private View mView;
 
     public ProgressLoading(View mView) {
         this.mView = mView;

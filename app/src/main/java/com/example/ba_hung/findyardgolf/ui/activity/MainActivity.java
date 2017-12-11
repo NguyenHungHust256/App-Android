@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private ImageView imgAvatar;
     private TextView txtNameUser, txtPhoneNumber;
-    String img, name;
+    private String img, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -16,7 +16,7 @@ import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.ServiceGolf.ServiceI
 
 public class MyPagerAdapter  extends FragmentPagerAdapter {
 //    private static final String[] tieuDe = {"Chi tiết", "Dịch vụ", "Bản đồ","Thời tiết" };
-    SanGolfModel sanGolfModel;
+    private SanGolfModel sanGolfModel;
     public MyPagerAdapter(FragmentManager manager,SanGolfModel sanGolfModel ) {
         super(manager);
         this.sanGolfModel = sanGolfModel;

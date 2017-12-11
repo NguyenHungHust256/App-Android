@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ServiceItemAdapter extends RecyclerView.Adapter<ServiceItemAdapter.ViewHolder> {
     private Context context;
-    ArrayList<String> tenDichVu = new ArrayList<>();
+    private ArrayList<String> tenDichVu = new ArrayList<>();
 
     public ServiceItemAdapter(Context context, ArrayList<String> tenDichVu) {
         this.context = context;
@@ -33,8 +33,7 @@ public class ServiceItemAdapter extends RecyclerView.Adapter<ServiceItemAdapter.
         View view;
         LayoutInflater inflater = LayoutInflater.from(this.context);
         view = inflater.inflate(R.layout.custom_service, parent, false);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+        return new ViewHolder(view);
     }
 
 

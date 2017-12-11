@@ -50,7 +50,7 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
     private FirebaseAuth mAuth;
     private DatabaseReference mData;
     private String phone;
-    SanGolfModel sanGolf = new SanGolfModel();
+    private SanGolfModel sanGolf = new SanGolfModel();
 
     public InfoEachItemFragment() {
 

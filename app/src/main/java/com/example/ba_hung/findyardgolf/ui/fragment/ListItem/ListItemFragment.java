@@ -34,12 +34,12 @@ import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 public class ListItemFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private DatabaseReference mData;
     private View mView;
-    RecyclerView rvcSanGolf;
-    Spinner spnTinh;
-    String danhDauMien;
-    YardGolfAdapter adapter;
-    ArrayList<SanGolfModel> datas = new ArrayList<>();
-    ArrayList<String> dataTinh = new ArrayList<>();
+    private RecyclerView rvcSanGolf;
+    private Spinner spnTinh;
+    private String danhDauMien;
+    private YardGolfAdapter adapter;
+    private ArrayList<SanGolfModel> datas = new ArrayList<>();
+    private ArrayList<String> dataTinh = new ArrayList<>();
 
 
     public ListItemFragment() {

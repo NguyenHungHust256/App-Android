@@ -19,9 +19,9 @@ import com.example.ba_hung.findyardgolf.ui.adapter.MyPagerAdapter;
  */
 public class XemItemFragment extends Fragment {
     private View mView;
-    SanGolfModel sanGolfModel;
-    ViewPager viewPager;
-    TabLayout tabLayout;
+    private SanGolfModel sanGolfModel;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
     public XemItemFragment(SanGolfModel sanGolfModel) {
         this.sanGolfModel = sanGolfModel;
     }

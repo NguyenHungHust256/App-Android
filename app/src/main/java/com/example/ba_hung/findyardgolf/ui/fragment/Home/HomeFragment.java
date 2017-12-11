@@ -33,11 +33,11 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
     private View mView;
-    Button btnMienBac, btnMienTrung, btnMienNam;
-    TextView txtKhuVucSanGolf;
-    FloatingSearchView searchView;
+    private Button btnMienBac, btnMienTrung, btnMienNam;
+    private TextView txtKhuVucSanGolf;
+    private FloatingSearchView searchView;
     private List<Suggestion> mSuggestions = new ArrayList<>();
-    DatabaseReference mData;
+    private DatabaseReference mData;
     private static final String[] mien = {"Miền Bắc", "Miền Trung", "Miền Nam"};
 
     private String[] mienBac = {"Hà Nội", "Hải Dương", "Hải Phòng", "Vĩnh Phúc", "Bắc Giang", "Quảng Ninh", "Hòa Bình", "Ninh Bình"};

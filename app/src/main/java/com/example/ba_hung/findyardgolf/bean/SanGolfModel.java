@@ -1,10 +1,12 @@
 package com.example.ba_hung.findyardgolf.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by ba-hung on 22/10/2017.
  **/
 
-public class SanGolfModel {
+public class SanGolfModel implements Serializable {
     private String address;
     private String city;
     private String description;

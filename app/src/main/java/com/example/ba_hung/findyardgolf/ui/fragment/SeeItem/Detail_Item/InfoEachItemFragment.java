@@ -1,4 +1,4 @@
-package com.example.ba_hung.findyardgolf.ui.fragment.SeeItem;
+package com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.Detail_Item;
 
 
 import android.Manifest;
@@ -66,26 +66,6 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_info_each_item, container, false);
-//        mView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                y = motionEvent.getY();
-//                switch (motionEvent.getAction()) {
-//                    case MotionEvent.ACTION_DOWN:
-//                        xDown = motionEvent.getX(); //Lay toa do khi nguoi dung cham tay xuong
-//                        break;
-//                    case MotionEvent.ACTION_UP:
-//                        xUp = motionEvent.getX(); // lay toan do nguoi dung khi nhac tay ra
-//                        if (xDown > xUp && y <= 250) {
-//                            mViewFlipper.showNext();
-//                        } else if (xDown < xUp && y <= 250) {
-//                            mViewFlipper.showPrevious();
-//                        }
-//                        break;
-//                }
-//                return true;
-//            }
-//        });
         return mView;
     }
 

@@ -2,7 +2,6 @@ package com.example.ba_hung.findyardgolf.ui.fragment.User.InfomationUser;
 
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ba_hung.findyardgolf.R;
+import com.example.ba_hung.findyardgolf.controller.ProgressLoading;
 import com.example.ba_hung.findyardgolf.ui.activity.MainActivity;
 import com.example.ba_hung.findyardgolf.ui.fragment.Home.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,7 +36,6 @@ public class PersonalUserFragment extends Fragment {
     private FirebaseAuth mAuth;
     private String phone, name, diachi, linkAvatar;
     private CircleImageView imgAvatar;
-    private ProgressBar progress_loading;
     public PersonalUserFragment() {
     }
 
@@ -56,7 +54,8 @@ public class PersonalUserFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         AnhXa();
-        xuLyLoading();
+        ProgressLoading progress = new ProgressLoading(mView);
+        progress.xuLyLoading(mView, 1000, R.id.progressBar_loading);
         chinhHeader();
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,22 +64,7 @@ public class PersonalUserFragment extends Fragment {
             }
         });
     }
-    private void xuLyLoading() {
-        final ProgressBar spinner;
-        spinner = mView.findViewById(R.id.progressBar_loading);
 
-
-        Runnable spinnerCyCle = new Runnable() {
-            @Override
-            public void run() {
-                spinner.setVisibility(View.GONE);
-            }
-        };
-
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(spinnerCyCle, 1300);
-
-    }
 
     private void AnhXa() {
         txtName = mView.findViewById(R.id.txtHoVaTen);
@@ -88,7 +72,6 @@ public class PersonalUserFragment extends Fragment {
         txtPhone = mView.findViewById(R.id.txtPhone);
         btnOk = mView.findViewById(R.id.btnOk);
         imgAvatar = mView.findViewById(R.id.imgAvatar);
-        progress_loading = mView.findViewById(R.id.progressBar_loading);
     }
     private void chinhHeader() {
         phone = mAuth.getCurrentUser().getPhoneNumber().toString();
@@ -125,9 +108,7 @@ public class PersonalUserFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 diachi = dataSnapshot.getValue().toString();
                 txtDiaChi.setText(diachi);
-
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

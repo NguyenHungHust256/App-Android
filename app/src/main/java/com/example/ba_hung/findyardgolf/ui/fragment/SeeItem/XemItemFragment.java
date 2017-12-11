@@ -37,6 +37,10 @@ public class XemItemFragment extends Fragment {
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.details);
+        tabLayout.getTabAt(1).setIcon(R.drawable.support);
+        tabLayout.getTabAt(2).setIcon(R.drawable.map2);
+        tabLayout.getTabAt(3).setIcon(R.drawable.weather);
         return mView;
     }
 

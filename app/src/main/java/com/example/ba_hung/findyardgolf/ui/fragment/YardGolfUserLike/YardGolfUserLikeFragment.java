@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.ba_hung.findyardgolf.R;
 import com.example.ba_hung.findyardgolf.bean.SanGolfModel;
+import com.example.ba_hung.findyardgolf.controller.ProgressLoading;
 import com.example.ba_hung.findyardgolf.ui.adapter.YardGolfAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -63,7 +64,8 @@ public class YardGolfUserLikeFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         rcvSanGolfYeuThich = mView.findViewById(R.id.rcvSanGolfYeuThich);
-
+        ProgressLoading progress = new ProgressLoading(mView);
+        progress.xuLyLoading(mView, 3000, R.id.progressBar_loading);
         adapter = new YardGolfAdapter(getActivity(), datas);
         RecyclerView.LayoutManager giaoDien = new LinearLayoutManager(getActivity());
         rcvSanGolfYeuThich.setLayoutManager(giaoDien);
@@ -77,9 +79,7 @@ public class YardGolfUserLikeFragment extends Fragment {
                 layDuLieuChoData();
             }
         }, 1000);
-        Log.d("check xuLyDataDaLike", nhungSanGolfDuocLike.size()+"");
 
-        Log.d("check LayduLieuChoData ", datas.size()+"");
     }
 
     private void XuLyDataDaLike() {
@@ -139,23 +139,23 @@ public class YardGolfUserLikeFragment extends Fragment {
         }
     }
     private void themeDuLieuVaoData(DataSnapshot dataSnapshot) {
-        String address = dataSnapshot.child("Address").getValue().toString();
-        String city = dataSnapshot.child("City").getValue().toString();
-        String description = dataSnapshot.child("Description").getValue().toString();
-        String image = dataSnapshot.child("Image").getValue().toString();
-        double latitude = Double.valueOf(dataSnapshot.child("Latitude").getValue().toString());
-        double longtitude = Double.valueOf(dataSnapshot.child("Longtitude").getValue().toString());
-        int like = Integer.valueOf(dataSnapshot.child("Like").getValue().toString());
         String name = dataSnapshot.child("Name").getValue().toString();
-        String phone = dataSnapshot.child("Phone").getValue().toString();
-        String price = dataSnapshot.child("Price").getValue().toString();
-        String service = dataSnapshot.child("Service").getValue().toString();
-        int star = Integer.valueOf(dataSnapshot.child("Star").getValue().toString());
-        String website = dataSnapshot.child("Website").getValue().toString();
-        String avatar = dataSnapshot.child("avatar").getValue().toString();
-        Log.d("check du lieu trong them du lieu vao data ", nhungSanGolfDuocLike.size()+"");
         for(int i=0; i<nhungSanGolfDuocLike.size();i++){
+
             if(nhungSanGolfDuocLike.get(i).equals(name)){
+                String address = dataSnapshot.child("Address").getValue().toString();
+                String city = dataSnapshot.child("City").getValue().toString();
+                String description = dataSnapshot.child("Description").getValue().toString();
+                String image = dataSnapshot.child("Image").getValue().toString();
+                double latitude = Double.valueOf(dataSnapshot.child("Latitude").getValue().toString());
+                double longtitude = Double.valueOf(dataSnapshot.child("Longtitude").getValue().toString());
+                int like = Integer.valueOf(dataSnapshot.child("Like").getValue().toString());
+                String phone = dataSnapshot.child("Phone").getValue().toString();
+                String price = dataSnapshot.child("Price").getValue().toString();
+                String service = dataSnapshot.child("Service").getValue().toString();
+                int star = Integer.valueOf(dataSnapshot.child("Star").getValue().toString());
+                String website = dataSnapshot.child("Website").getValue().toString();
+                String avatar = dataSnapshot.child("avatar").getValue().toString();
                 SanGolfModel sanGolf = new SanGolfModel(address, city, description, image, latitude, longtitude, like, name, phone, price, service, star, website, avatar);
                 datas.add(sanGolf);
                 adapter.notifyDataSetChanged();

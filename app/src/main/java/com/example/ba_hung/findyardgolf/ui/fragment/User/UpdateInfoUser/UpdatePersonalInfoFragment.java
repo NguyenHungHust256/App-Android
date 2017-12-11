@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ba_hung.findyardgolf.R;
+import com.example.ba_hung.findyardgolf.controller.ProgressLoading;
 import com.example.ba_hung.findyardgolf.ui.activity.MainActivity;
 import com.example.ba_hung.findyardgolf.ui.fragment.Home.HomeFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -73,6 +74,8 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
         mAuth = FirebaseAuth.getInstance();
         storage = FirebaseStorage.getInstance().getReference();
         anhXa();
+        ProgressLoading progressLoading = new ProgressLoading(mView);
+        progressLoading.xuLyLoading(mView, 1000, R.id.progressBar_loading);
         layThongTinDienThoai();
         btnChoose.setOnClickListener(this);
         btnLuu.setOnClickListener(this);
@@ -121,7 +124,6 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
 
             }
         });
-
     }
 
     private void anhXa() {
@@ -132,8 +134,6 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
         btnChoose = mView.findViewById(R.id.btnChooseAvatar);
         imgAvatar = mView.findViewById(R.id.imgAvatarUser);
     }
-
-
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btnLuuThongTin) {
@@ -147,11 +147,7 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
             Toast.makeText(getActivity(), "Thay đổi thông tin thành công!", Toast.LENGTH_SHORT).show();
             ((MainActivity) getActivity()).themVaChinhHeaderFragment(R.id.myLayout, new HomeFragment());
         }
-//        else if(view.getId() == R.id.btnChooseAvatar){
-//            Intent intent = new Intent(Intent.ACTION_PICK);
-//            intent.setType("image/*");
-//            startActivityForResult(intent,GALLERY_REQUEST);
-//        }
+
         else if (view.getId() == R.id.btnChooseAvatar) {
 
             new AlertDialog.Builder(getActivity())
@@ -165,11 +161,6 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
                                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
                             startActivityForResult(intent, GALLERY_REQUEST);
-//                            Intent intent = new Intent();
-//                            intent.setType("image/*");
-//                            intent.setAction(Intent.ACTION_PICK);
-//                            startActivityForResult(Intent.createChooser(intent, "Chọn ảnh"), GALLERY_REQUEST);
-//                            startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GALLERY_REQUEST);
                             dialogInterface.dismiss();
                         }
                     })
@@ -180,7 +171,6 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
                         }
                     }).show();
         }
-
     }
 
 
@@ -215,27 +205,5 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
         }
 
     }
-
-//    @Override
-//     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//
-//        if (requestCode == GALLERY_REQUEST && resultCode == RESULT_OK && null != data) {
-//            Uri uri = data.getData();
-//            String[] filePathColumn = { MediaStore.Images.Media.DATA };
-//
-//            Cursor cursor = getActivity().getContentResolver().query(uri,
-//                    filePathColumn, null, null, null);
-//            cursor.moveToFirst();
-//
-//            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//            String picturePath = cursor.getString(columnIndex);
-//            cursor.close();
-//
-//            imgAvatar.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-//
-//        }
-//    }
 
 }

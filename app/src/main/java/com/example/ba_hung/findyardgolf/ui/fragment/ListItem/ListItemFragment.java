@@ -2,7 +2,6 @@ package com.example.ba_hung.findyardgolf.ui.fragment.ListItem;
 
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.example.ba_hung.findyardgolf.R;
 import com.example.ba_hung.findyardgolf.bean.SanGolfModel;
+import com.example.ba_hung.findyardgolf.controller.ProgressLoading;
 import com.example.ba_hung.findyardgolf.ui.adapter.YardGolfAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -65,6 +64,8 @@ public class ListItemFragment extends Fragment implements AdapterView.OnItemSele
         super.onViewCreated(view, savedInstanceState);
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
         mData = FirebaseDatabase.getInstance().getReference();
+        ProgressLoading progressLoading = new ProgressLoading(mView);
+        progressLoading.xuLyLoading(mView, 1500, R.id.progressBar_loading);
         AnhXa();
         InitDataTungTinhChoSpinner();
         RecyclerViewKhiAnButton(datas);
@@ -126,7 +127,7 @@ public class ListItemFragment extends Fragment implements AdapterView.OnItemSele
             });
         } else {
             datas.clear();
-            xuLyLoading();
+
             for(int k = 1; k< dataTinh.size(); k++){
                 mData.child("SanGolf").child(dataTinh.get(0)).child(dataTinh.get(k)).addChildEventListener(new ChildEventListener() {
                     @Override
@@ -157,22 +158,7 @@ public class ListItemFragment extends Fragment implements AdapterView.OnItemSele
             }
         }
     }
-    private void xuLyLoading() {
-        final ProgressBar spinner;
-        spinner = (ProgressBar)mView.findViewById(R.id.progressBar1);
 
-
-        Runnable spinnerCyCle = new Runnable() {
-            @Override
-            public void run() {
-                spinner.setVisibility(View.GONE);
-            }
-        };
-
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(spinnerCyCle, 2000);
-
-    }
     private void themeDuLieuVaoData(DataSnapshot dataSnapshot) {
         String address = dataSnapshot.child("Address").getValue().toString();
         String city = dataSnapshot.child("City").getValue().toString();

@@ -5,16 +5,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.ba_hung.findyardgolf.bean.SanGolfModel;
-import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.MapItemFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.InfoEachItemFragment;
-import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.ServiceItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.DuBaoThoiTiet.DuBaoThoiTietMainFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.Map.MapItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.Detail_Item.InfoEachItemFragment;
+import com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.ServiceGolf.ServiceItemFragment;
 
 /**
  * Created by ba-hung on 09/10/2017.
  **/
 
 public class MyPagerAdapter  extends FragmentPagerAdapter {
-    private static final String[] tieuDe = {"Chi tiết", "Dịch vụ", "Bản đồ" };
+//    private static final String[] tieuDe = {"Chi tiết", "Dịch vụ", "Bản đồ","Thời tiết" };
     SanGolfModel sanGolfModel;
     public MyPagerAdapter(FragmentManager manager,SanGolfModel sanGolfModel ) {
         super(manager);
@@ -36,18 +37,21 @@ public class MyPagerAdapter  extends FragmentPagerAdapter {
         {
             fragment = new MapItemFragment(sanGolfModel);
         }
+        else if(position == 3){
+            fragment = new DuBaoThoiTietMainFragment(sanGolfModel);
+        }
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return tieuDe.length;
+        return 4;
     }
 
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return tieuDe[position];
-    }
+//    @Override
+//    public CharSequence getPageTitle(int position) {
+//        return tieuDe[position];
+//    }
 
 }

@@ -4,75 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/anhnenlogin"
+    android:background="@drawable/background_login"
     android:orientation="vertical"
     android:weightSum="4"
     tools:context="com.example.ba_hung.findyardgolf.ui.activity.LoginActivity">
 
     <TextView
         android:id="@+id/nameApp"
-        android:layout_weight="1"
+        android:layout_weight="1.8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="serif"
         android:gravity="center"
 
-        android:textColor="#ffff"
+        android:textColor="#9e9d9d"
         android:textSize="60sp"
         android:textStyle="bold|italic" />
 
     <LinearLayout
-        android:layout_weight="1.5"
-        android:weightSum="2"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        android:weightSum="2">
+
         <LinearLayout
-            android:layout_weight="1"
-            android:weightSum="6"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="6">
 
             <EditText
                 android:id="@+id/edtSDT"
                 android:layout_width="0dp"
-                android:layout_margin="10dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:layout_weight="4.5"
-                android:inputType="phone"
                 android:gravity="center_vertical"
                 android:hint="Nhập số điện thoại"
-                android:textColorHint="#9b9a9a" />
+                android:inputType="phone"
+                android:textColorHint="#ffffffff" />
+
             <Button
-                android:layout_weight="1.5"
-                android:text="Lấy mã"
                 android:id="@+id/btnLayMa"
-                android:layout_margin="5dp"
-                android:background="@drawable/button_press"
-                android:layout_gravity="center"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/button"
+                android:text="Lấy mã" />
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_weight="1"
-            android:weightSum="6"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="6">
 
             <EditText
                 android:id="@+id/edtVertify"
                 android:layout_width="0dp"
-                android:layout_margin="10dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:layout_weight="4.5"
                 android:gravity="center_vertical"
                 android:hint="Nhập mã xác nhận"
                 android:inputType="number"
-                android:textColorHint="#9b9a9a" />
+                android:textColorHint="#ffffffff" />
 
             <Button
                 android:id="@+id/btnDangNhap"
@@ -81,7 +84,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1.5"
-                android:background="@drawable/button_press"
+                android:background="@drawable/button"
                 android:text="Đăng nhập" />
 
         </LinearLayout>

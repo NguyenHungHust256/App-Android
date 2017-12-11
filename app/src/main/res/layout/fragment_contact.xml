@@ -34,7 +34,7 @@
             android:fontFamily="serif"
             android:gravity="center_vertical"
 
-            android:text="Nguyễn Bá Hùng"
+            android:text="Hùng Cường"
             android:textColor="#ffffff"
             android:textSize="18sp" />
 
@@ -106,7 +106,7 @@
 
             android:fontFamily="serif"
             android:gravity="center_vertical"
-            android:text="01695932469"
+            android:text="01695932469 | 01626841456"
             android:textColor="#ffffff"
             android:textSize="18sp" />
 
@@ -142,7 +142,7 @@
             android:fontFamily="serif"
 
             android:gravity="center_vertical"
-            android:text="hungpronguyen256@gmail.com"
+            android:text="bkandbest@gmail.com"
             android:textColor="#ffffff"
             android:textSize="18sp" />
 
@@ -178,7 +178,7 @@
             android:fontFamily="serif"
 
             android:gravity="center_vertical"
-            android:text="www.facebook.com/hungnguyen256"
+            android:text="www.facebook.com/hungcuong256"
             android:textColor="#ffffff"
             android:textSize="16sp" />
 
@@ -213,7 +213,7 @@
 
             android:fontFamily="serif"
             android:gravity="center_vertical"
-            android:text="hung.nguyen.256"
+            android:text="hung.cuong.256"
             android:textColor="#ffffff"
             android:textSize="18sp" />
 

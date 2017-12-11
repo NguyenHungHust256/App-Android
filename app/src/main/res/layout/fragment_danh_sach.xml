@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:background="@drawable/gradient" >
+            android:background="#ffffff" >
             <Spinner
                 android:id="@+id/spnTinh"
                 android:layout_width="match_parent"

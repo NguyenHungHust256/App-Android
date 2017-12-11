@@ -28,7 +28,7 @@ public class XemItemFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public  View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_xem_item, container, false);
         viewPager = mView.findViewById(R.id.viewpager);
@@ -39,7 +39,7 @@ public class XemItemFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.details);
         tabLayout.getTabAt(1).setIcon(R.drawable.support);
-        tabLayout.getTabAt(2).setIcon(R.drawable.map2);
+        tabLayout.getTabAt(2).setIcon(R.drawable.map);
         tabLayout.getTabAt(3).setIcon(R.drawable.weather);
         return mView;
     }

@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        chinhTitleToolbar();
         xacDinhKetNoiMangHayChua();
         mData = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
@@ -58,6 +59,13 @@ public class MainActivity extends AppCompatActivity
         navigationFunction();
         themFragment(R.id.myLayout, new HomeFragment());
         chinhHeader();
+    }
+
+    private void chinhTitleToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("GOLF FOR YOU");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void chinhHeader() {

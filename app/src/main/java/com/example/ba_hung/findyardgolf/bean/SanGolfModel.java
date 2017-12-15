@@ -18,14 +18,17 @@ public class SanGolfModel implements Serializable {
     private String phone;
     private String price;
     private String service;
-    private int star;
+    private float star;
     private String website;
     private String avatar;
+    private String mien;
+    private String tinh;
+    private int key;
 
     public SanGolfModel() {
     }
 
-    public SanGolfModel(String address, String city, String description, String image, double latitude, double longtitude, int like, String name, String phone, String price, String service, int star, String website, String avatar) {
+    public SanGolfModel(String address, String city, String description, String image, double latitude, double longtitude, int like, String name, String phone, String price, String service, float star, String website, String avatar, String mien, String tinh, int key) {
         this.address = address;
         this.description = description;
         this.image = image;
@@ -40,8 +43,22 @@ public class SanGolfModel implements Serializable {
         this.website = website;
         this.avatar = avatar;
         this.city = city;
+        this.mien = mien;
+        this.tinh = tinh;
+        this.key = key;
     }
 
+    public int getKey() {
+        return key;
+    }
+
+    public String getMien() {
+        return mien;
+    }
+
+    public String getTinh() {
+        return tinh;
+    }
 
     public String getCity() {
         return city;
@@ -87,7 +104,7 @@ public class SanGolfModel implements Serializable {
         return service;
     }
 
-    public int getStar() {
+    public float getStar() {
         return star;
     }
 

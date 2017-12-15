@@ -143,6 +143,7 @@ public class YardGolfUserLikeFragment extends Fragment {
         for(int i=0; i<nhungSanGolfDuocLike.size();i++){
 
             if(nhungSanGolfDuocLike.get(i).equals(name)){
+                int key = Integer.valueOf(dataSnapshot.child("Key").getValue().toString());
                 String address = dataSnapshot.child("Address").getValue().toString();
                 String city = dataSnapshot.child("City").getValue().toString();
                 String description = dataSnapshot.child("Description").getValue().toString();
@@ -153,10 +154,12 @@ public class YardGolfUserLikeFragment extends Fragment {
                 String phone = dataSnapshot.child("Phone").getValue().toString();
                 String price = dataSnapshot.child("Price").getValue().toString();
                 String service = dataSnapshot.child("Service").getValue().toString();
-                int star = Integer.valueOf(dataSnapshot.child("Star").getValue().toString());
+                float star = Float.valueOf(dataSnapshot.child("Star").child("StarTB").getValue().toString());
                 String website = dataSnapshot.child("Website").getValue().toString();
                 String avatar = dataSnapshot.child("avatar").getValue().toString();
-                SanGolfModel sanGolf = new SanGolfModel(address, city, description, image, latitude, longtitude, like, name, phone, price, service, star, website, avatar);
+                String Mien = dataSnapshot.child("Mien").getValue().toString();
+                String tenTinh = dataSnapshot.child("Tinh").getValue().toString();
+                SanGolfModel sanGolf = new SanGolfModel(address, city, description, image, latitude, longtitude, like, name, phone, price, service, star, website, avatar,Mien, tenTinh, key);
                 datas.add(sanGolf);
                 adapter.notifyDataSetChanged();
             }

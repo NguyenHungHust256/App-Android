@@ -137,13 +137,7 @@ public class MainActivity extends AppCompatActivity
 
         chinhHeader();
 
-        String name = fragment.getClass().getName();
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(id, fragment);
-        transaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
-        transaction.addToBackStack(name);
-        transaction.commit();
+        themFragment(id, fragment);
     }
 
 
@@ -153,7 +147,8 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.myLayout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-            themFragment(R.id.myLayout, new HomeFragment());
+            String name = fragment.getClass().getName();
+            getSupportFragmentManager().popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         } else if (getBaseContext() instanceof SplashView) {
             super.onBackPressed();
             System.exit(0);
@@ -220,6 +215,9 @@ public class MainActivity extends AppCompatActivity
             themFragment(R.id.myLayout, new UpdatePersonalInfoFragment());
         } else if (id == R.id.nav_infoUser) {
             themFragment(R.id.myLayout, new PersonalUserFragment());
+        } else if(id == R.id.nav_huongdan){
+            Intent intent = new Intent(MainActivity.this, HuongDanSuDung.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

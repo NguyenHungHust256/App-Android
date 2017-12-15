@@ -43,9 +43,9 @@
             android:name=".ui.activity.MainActivity"
             android:configChanges="orientation"
             android:label="@string/app_name"
-            android:windowSoftInputMode="stateVisible|adjustResize"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -54,15 +54,14 @@
         <activity
             android:name=".ui.activity.LoginActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="90d1b2103b6d49c2d5da7c93f7e2693d0970d628" />
 
-        <activity android:name=".ui.activity.ThoiTiet5NgayActivity"></activity>
+        <activity android:name=".ui.activity.ThoiTiet5NgayActivity" />
+        <activity android:name=".ui.activity.HuongDanSuDung"></activity>
     </application>
 
 </manifest>

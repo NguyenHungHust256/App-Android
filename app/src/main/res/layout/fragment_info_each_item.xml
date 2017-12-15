@@ -1,298 +1,345 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:fillViewport="true"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
     android:orientation="vertical"
     tools:context="com.example.ba_hung.findyardgolf.ui.fragment.SeeItem.Detail_Item.InfoEachItemFragment">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:weightSum="3"
-    android:layout_height="match_parent">
-    <ViewFlipper
-        android:id="@+id/viewFlipper"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_weight="1">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY" />
-            <ImageView
-                android:id="@+id/back"
-                android:src="@drawable/backpage"
-                android:layout_centerVertical="true"
-                android:layout_width="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="30dp" />
-            <ImageView
-                android:id="@+id/next"
-                android:src="@drawable/nextpage"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_width="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_height="30dp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY" />
-            <ImageView
-                android:id="@+id/back1"
-                android:src="@drawable/backpage"
-                android:layout_centerVertical="true"
-                android:layout_width="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="30dp" />
-            <ImageView
-                android:id="@+id/next1"
-                android:src="@drawable/nextpage"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_width="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_height="30dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY" />
-            <ImageView
-                android:id="@+id/back2"
-                android:src="@drawable/backpage"
-                android:layout_centerVertical="true"
-                android:layout_width="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="30dp" />
-            <ImageView
-                android:id="@+id/next2"
-                android:src="@drawable/nextpage"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_width="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_height="30dp" />
-        </RelativeLayout>
-
-
-    </ViewFlipper>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="5">
+        android:weightSum="3">
+
+        <ViewFlipper
+            android:id="@+id/viewFlipper"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/backpage" />
+
+                <ImageView
+                    android:id="@+id/next"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/nextpage" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/back1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/backpage" />
+
+                <ImageView
+                    android:id="@+id/next1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/nextpage" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/back2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/backpage" />
+
+                <ImageView
+                    android:id="@+id/next2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/nextpage" />
+            </RelativeLayout>
+
+
+        </ViewFlipper>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="vertical"
-            android:weightSum="2.5">
+            android:weightSum="5">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1.5">
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2.5">
 
-                <RatingBar
-                    android:id="@+id/ratingOneGolf"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:numStars="5"
-                    android:rating="3"
-                    android:stepSize="0.5"
-                    android:theme="@style/RatingBar" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1.5">
+
+                    <RatingBar
+                        android:id="@+id/ratingOneGolf"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:numStars="5"
+                        android:rating="3"
+                        android:stepSize="1"
+                        android:theme="@style/RatingBar" />
+
+                    <TextView
+                        android:id="@+id/txtGia"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="120.000d" />
+
+                    <Button
+                        android:id="@+id/btnBookingOneGolf"
+                        android:layout_width="70dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:background="@drawable/button"
+                        android:text="BOOKING" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="4">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="3">
+
+                        <TextView
+                            android:id="@+id/txtTenSanGolf"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical"
+                            android:lines="1"
+                            android:text="San Golf Nguyen Ba Hung"
+                            android:textSize="20sp"
+                            android:textStyle="bold|italic" />
+
+                    </LinearLayout>
+
+                    <com.like.LikeButton
+                        android:id="@+id/btnLike"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        app:anim_scale_factor="2.5"
+                        app:circle_end_color="@color/colorAccent"
+                        app:circle_start_color="@color/colorPrimary"
+                        app:dots_primary_color="@color/colorAccent"
+                        app:dots_secondary_color="@color/colorPrimary"
+                        app:icon_size="25dp"
+                        app:icon_type="heart"
+                        app:like_drawable="@drawable/heart_on"
+                        app:unlike_drawable="@drawable/heart_off" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:weightSum="1">
 
                 <TextView
-                    android:id="@+id/txtGia"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="120.000d" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Mô tả: "
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/btnBookingOneGolf"
-                    android:layout_width="70dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/button"
-                    android:text="BOOKING" />
+                <TextView
+                    android:id="@+id/txtMoTa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:ellipsize="end"
+                    android:text="Yên Dũng Resort  Golf Club cách Hà Nội khoảng 50km về phía Bắc, tọa lạc trên dãy núi Nham Biền hùng vĩ, có địa thế 'Tựa sơn - đạp thủy' mang lại phú quý cho chủ nhân nơi đây. Sân được thiết kế bởi Albanese  Lutzke Inc trên diện tích 183ha; Với quy mô 36 số và sẽ được triển khai theo 2 giai đoạn: giai đoạn 1 gồm 18 hố sân Sườn đồi (Hillside) và giai đoạn 2 gồm 18 hố sân Thung lũng đá (Rock Valley)."
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:weightSum="4">
+                android:orientation="vertical"
+                android:weightSum="1.5">
 
                 <LinearLayout
-                    android:layout_weight="3"
-                    android:layout_width="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.75"
+                    android:orientation="horizontal"
+                    android:weightSum="6">
+
                     <TextView
-                        android:textSize="20sp"
-                        android:lines="1"
-                        android:ellipsize="end"
-                        android:textStyle="bold|italic"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1.3"
                         android:gravity="center_vertical"
-                        android:id="@+id/txtTenSanGolf"
-                        android:text="San Golf Nguyen Ba Hung"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:text="Địa chỉ:"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtDiaChiGolf"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="4.9"
+                        android:gravity="center_vertical"
+                        android:text="Xã Tiền Phong, Huyện Yên Dũng, Bắc Giang" />
 
                 </LinearLayout>
-                <com.like.LikeButton
-                    android:id="@+id/btnLike"
-                    android:layout_weight="1"
-                    app:circle_start_color="@color/colorPrimary"
-                    app:circle_end_color="@color/colorAccent"
-                    app:like_drawable="@drawable/heart_on"
-                    app:unlike_drawable="@drawable/heart_off"
-                    android:layout_gravity="center"
-                    app:icon_type="heart"
-                    app:dots_primary_color="@color/colorAccent"
-                    app:dots_secondary_color="@color/colorPrimary"
-                    android:layout_marginTop="5dp"
-                    app:icon_size="25dp"
-                    app:anim_scale_factor="2.5"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"/>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="0.75"
+                    android:orientation="horizontal"
+                    android:weightSum="6">
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1.3"
+                        android:gravity="center_vertical"
+                        android:text="Website:"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/txtTrangWeb"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="4.7"
+                        android:autoLink="web"
+                        android:gravity="center_vertical"
+                        android:text="http://yendunggolf.vn/"
+                        android:textColor="#0044b1" />
 
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:orientation="vertical"
-            android:weightSum="1">
+            android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/txtDanhGia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="5dp"
-                android:text="Mô tả: "
-                android:textSize="18sp"
+                android:text="Đánh giá"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtMoTa"
-                android:layout_width="match_parent"
+            <RatingBar
+                android:id="@+id/ratingBarForUser"
+                style="?android:attr/ratingBarStyle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginBottom="10dp"
-                android:ellipsize="end"
-                android:text="Yên Dũng Resort  Golf Club cách Hà Nội khoảng 50km về phía Bắc, tọa lạc trên dãy núi Nham Biền hùng vĩ, có địa thế 'Tựa sơn - đạp thủy' mang lại phú quý cho chủ nhân nơi đây. Sân được thiết kế bởi Albanese  Lutzke Inc trên diện tích 183ha; Với quy mô 36 số và sẽ được triển khai theo 2 giai đoạn: giai đoạn 1 gồm 18 hố sân Sườn đồi (Hillside) và giai đoạn 2 gồm 18 hố sân Thung lũng đá (Rock Valley)."
-                android:textSize="18sp"
-                android:textStyle="italic" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="-15dp"
+                android:layout_toRightOf="@id/txtDanhGia"
+                android:numStars="5"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:stepSize="1"
+                android:theme="@style/RatingBar" />
 
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:weightSum="1.5">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.75"
-                android:orientation="horizontal"
-                android:weightSum="6">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1.3"
-                    android:gravity="center_vertical"
-                    android:text="Địa chỉ:"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtDiaChiGolf"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="4.9"
-                    android:gravity="center_vertical"
-                    android:text="Xã Tiền Phong, Huyện Yên Dũng, Bắc Giang" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.75"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp"
-                android:weightSum="6">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1.3"
-                    android:gravity="center_vertical"
-                    android:text="Website:"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtTrangWeb"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="4.7"
-                    android:autoLink="web"
-                    android:gravity="center_vertical"
-                    android:text="http://yendunggolf.vn/"
-                    android:textColor="#0044b1" />
-
-            </LinearLayout>
-        </LinearLayout>
-
+            <Button
+                android:id="@+id/btnOkRating"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="-15dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@id/ratingBarForUser"
+                android:background="@drawable/button"
+                android:text="OK" />
+        </RelativeLayout>
     </LinearLayout>
-
-</LinearLayout>
 
 
 </ScrollView>

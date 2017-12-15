@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 
 public class ProgressLoading {
     private View mView;
+    private ProgressBar spinner;
 
     public ProgressLoading(View mView) {
         this.mView = mView;
@@ -17,7 +18,6 @@ public class ProgressLoading {
 
 
     public void xuLyLoading(View mView, int a, int k) {
-        final ProgressBar spinner;
         spinner = mView.findViewById(k);
         Runnable spinnerCyCle = new Runnable() {
             @Override
@@ -28,5 +28,21 @@ public class ProgressLoading {
         Handler pdCanceller = new Handler();
         pdCanceller.postDelayed(spinnerCyCle, a);
 
+    }
+    public void xuLyLoadingNotGone(View mView, int a, int k) {
+        spinner = mView.findViewById(k);
+        Runnable spinnerCyCle = new Runnable() {
+            @Override
+            public void run() {
+                spinner.setVisibility(View.INVISIBLE);
+            }
+        };
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(spinnerCyCle, a);
+    }
+
+    public void hienProgress(int k){
+        spinner = mView.findViewById(k);
+        spinner.setVisibility(View.VISIBLE);
     }
 }

@@ -96,7 +96,7 @@ public class ListItemFragment extends Fragment implements AdapterView.OnItemSele
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String tenTinh = spnTinh.getSelectedItem().toString();
+        final String tenTinh = spnTinh.getSelectedItem().toString();
         if (!tenTinh.equals(danhDauMien)) {
             datas.clear();
             mData.child("SanGolf").child(danhDauMien).child(tenTinh).addChildEventListener(new ChildEventListener() {
@@ -129,6 +129,7 @@ public class ListItemFragment extends Fragment implements AdapterView.OnItemSele
             datas.clear();
 
             for(int k = 1; k< dataTinh.size(); k++){
+
                 mData.child("SanGolf").child(dataTinh.get(0)).child(dataTinh.get(k)).addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -160,6 +161,7 @@ public class ListItemFragment extends Fragment implements AdapterView.OnItemSele
     }
 
     private void themeDuLieuVaoData(DataSnapshot dataSnapshot) {
+        int key = Integer.valueOf(dataSnapshot.child("Key").getValue().toString());
         String address = dataSnapshot.child("Address").getValue().toString();
         String city = dataSnapshot.child("City").getValue().toString();
         String description = dataSnapshot.child("Description").getValue().toString();
@@ -171,11 +173,13 @@ public class ListItemFragment extends Fragment implements AdapterView.OnItemSele
         String phone = dataSnapshot.child("Phone").getValue().toString();
         String price = dataSnapshot.child("Price").getValue().toString();
         String service = dataSnapshot.child("Service").getValue().toString();
-        int star = Integer.valueOf(dataSnapshot.child("Star").getValue().toString());
+        float star = Float.valueOf(dataSnapshot.child("Star").child("StarTB").getValue().toString());
         String website = dataSnapshot.child("Website").getValue().toString();
         String avatar = dataSnapshot.child("avatar").getValue().toString();
+        String mien = dataSnapshot.child("Mien").getValue().toString();
+        String tinh = dataSnapshot.child("Tinh").getValue().toString();
 
-        SanGolfModel sanGolf = new SanGolfModel(address, city, description, image, latitude, longtitude, like, name, phone, price, service, star, website, avatar);
+        SanGolfModel sanGolf = new SanGolfModel(address, city, description, image, latitude, longtitude, like, name, phone, price, service, star, website, avatar,mien, tinh, key);
         datas.add(sanGolf);
         adapter.notifyDataSetChanged();
     }

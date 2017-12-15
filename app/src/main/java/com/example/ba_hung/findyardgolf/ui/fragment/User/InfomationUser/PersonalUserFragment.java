@@ -29,13 +29,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * A simple {@link Fragment} subclass.
  */
 public class PersonalUserFragment extends Fragment {
-    private  View mView;
+    private View mView;
     private TextView txtName, txtPhone, txtDiaChi;
     private Button btnOk;
     private DatabaseReference mData;
     private FirebaseAuth mAuth;
     private String phone, name, diachi, linkAvatar;
     private CircleImageView imgAvatar;
+
     public PersonalUserFragment() {
     }
 
@@ -52,7 +53,7 @@ public class PersonalUserFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mData = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         AnhXa();
         ProgressLoading progress = new ProgressLoading(mView);
         progress.xuLyLoading(mView, 1000, R.id.progressBar_loading);
@@ -60,7 +61,7 @@ public class PersonalUserFragment extends Fragment {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).themFragment(R.id.myLayout, new HomeFragment());
+                ((MainActivity) getActivity()).themFragment(R.id.myLayout, new HomeFragment());
             }
         });
     }
@@ -73,6 +74,7 @@ public class PersonalUserFragment extends Fragment {
         btnOk = mView.findViewById(R.id.btnOk);
         imgAvatar = mView.findViewById(R.id.imgAvatar);
     }
+
     private void chinhHeader() {
         phone = mAuth.getCurrentUser().getPhoneNumber().toString();
         txtPhone.setText(phone);
@@ -109,12 +111,11 @@ public class PersonalUserFragment extends Fragment {
                 diachi = dataSnapshot.getValue().toString();
                 txtDiaChi.setText(diachi);
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
-
     }
 }

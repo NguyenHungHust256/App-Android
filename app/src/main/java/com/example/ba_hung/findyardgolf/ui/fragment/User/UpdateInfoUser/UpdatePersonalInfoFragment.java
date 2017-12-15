@@ -75,7 +75,7 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
         storage = FirebaseStorage.getInstance().getReference();
         anhXa();
         ProgressLoading progressLoading = new ProgressLoading(mView);
-        progressLoading.xuLyLoading(mView, 1000, R.id.progressBar_loading);
+        progressLoading.xuLyLoadingNotGone(mView, 1000, R.id.progressBar_loading);
         layThongTinDienThoai();
         btnChoose.setOnClickListener(this);
         btnLuu.setOnClickListener(this);
@@ -141,11 +141,13 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
             mData.child("User").child(phoneNumber).child("name").setValue(edtHoVaTen.getText().toString());
 
             mData.child("User").child(phoneNumber).child("diaChi").setValue(edtDiaChi.getText().toString());
-
+            Toast.makeText(getActivity(), "Đang thay đổi thông tin cá nhân...", Toast.LENGTH_SHORT).show();
             capNhatAnhDaiDien();
+            ProgressLoading progressLoading = new ProgressLoading(mView);
+            progressLoading.hienProgress(R.id.progressBar_loading);
+            progressLoading.xuLyLoading(mView, 3000, R.id.progressBar_loading);
 
-            Toast.makeText(getActivity(), "Thay đổi thông tin thành công!", Toast.LENGTH_SHORT).show();
-            ((MainActivity) getActivity()).themVaChinhHeaderFragment(R.id.myLayout, new HomeFragment());
+
         }
 
         else if (view.getId() == R.id.btnChooseAvatar) {
@@ -186,6 +188,8 @@ public class UpdatePersonalInfoFragment extends Fragment implements View.OnClick
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Uri downloadurl = taskSnapshot.getDownloadUrl();
                     mData.child("User").child(phoneNumber).child("avatar").setValue(downloadurl.toString());
+                    Toast.makeText(getActivity(), "Thay đổi thông tin thành công!", Toast.LENGTH_SHORT).show();
+                    ((MainActivity) getActivity()).themVaChinhHeaderFragment(R.id.myLayout, new HomeFragment());
                 }
             });
         }

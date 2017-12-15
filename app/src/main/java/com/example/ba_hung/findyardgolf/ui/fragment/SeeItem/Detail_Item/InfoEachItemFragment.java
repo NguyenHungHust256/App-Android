@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
@@ -41,16 +42,17 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
     private View mView;
     private ImageView img1, img2, img3, back, back1, back2, next, next1, next2;
     private ViewFlipper mViewFlipper;
-    private Button btnBooking;
+    private Button btnBooking, btnOK;
     private LikeButton btnLike;
     //    private float xDown, xUp;
 //    private float y;
     private TextView txtGia, txtMoTa, txtWeb, txtDiaChi, txtTenSanGolf;
-    private RatingBar ratingBar;
+    private RatingBar ratingBar, ratingForUser;
     private FirebaseAuth mAuth;
-    private DatabaseReference mData;
+    private DatabaseReference mData, mDataSanGolf;
     private String phone;
     private SanGolfModel sanGolf = new SanGolfModel();
+    public float soSao;
 
     public InfoEachItemFragment() {
 
@@ -74,6 +76,8 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
         mData = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+        mDataSanGolf = mData.child("SanGolf").child(sanGolf.getMien()).child(sanGolf.getTinh()).child(sanGolf.getKey()+"")
+                .child("Star").getRef();
         phone = mAuth.getCurrentUser().getPhoneNumber().toString();
 
         AnhXa();
@@ -87,6 +91,7 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
         xuLyNutLikeSangHayTat();
         btnBooking.setOnClickListener(this);
         btnLike.setOnLikeListener(this);
+        btnOK.setOnClickListener(this);
 
         back.setClickable(true);
         back.setOnClickListener(this);
@@ -108,11 +113,7 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
     }
 
     private void xuLyNutLikeSangHayTat() {
-//        likeButton.setLikeDrawable(heart_on);
-//        likeButton.setUnlikeDrawable(heart_off);
-//
-//        likeButton.setUnlikeDrawableRes(R.drawable.heart_off);
-//        likeButton.setLikeDrawableRes(R.drawable.heart_on);
+
         mData.child("User").child(phone).child("sanGolfDaLike").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -146,7 +147,29 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
         txtGia.setText(sanGolf.getPrice());
         txtMoTa.setText(sanGolf.getDescription() + "\n");
         txtTenSanGolf.setText(sanGolf.getName());
-        ratingBar.setRating(Float.valueOf(sanGolf.getStar()));
+        ratingBar.setRating( sanGolf.getStar());
+
+        layDuLieuChoRatingCuaPhone();
+
+    }
+
+    private void layDuLieuChoRatingCuaPhone() {
+
+        mDataSanGolf.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+               if(dataSnapshot.hasChild(phone)){
+                   float soSaoCuaPhone= Float.valueOf(dataSnapshot.child(phone).getValue().toString());
+                   ratingForUser.setRating(soSaoCuaPhone);
+                   Log.d("kiemtra", dataSnapshot.getValue().toString());
+               }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void loadAnh() {
@@ -178,16 +201,15 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
         txtTenSanGolf = mView.findViewById(R.id.txtTenSanGolf);
         btnLike = mView.findViewById(R.id.btnLike);
         ratingBar = mView.findViewById(R.id.ratingOneGolf);
+        ratingForUser = mView.findViewById(R.id.ratingBarForUser);
+        btnOK = mView.findViewById(R.id.btnOkRating);
         back = mView.findViewById(R.id.back);
         back1 = mView.findViewById(R.id.back1);
         back2 = mView.findViewById(R.id.back2);
         next = mView.findViewById(R.id.next);
         next1 = mView.findViewById(R.id.next1);
         next2 = mView.findViewById(R.id.next2);
-
-
     }
-
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btnBookingOneGolf) {
@@ -200,9 +222,35 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
             (getActivity()).startActivity(intent);
         } else if (view.getId() == R.id.back || view.getId() == R.id.back1 || view.getId() == R.id.back2) {
             mViewFlipper.showPrevious();
-        } else if (view.getId() == R.id.next || view.getId() == R.id.next1 ||view.getId() == R.id.next2) {
+        } else if (view.getId() == R.id.next || view.getId() == R.id.next1 || view.getId() == R.id.next2) {
             mViewFlipper.showNext();
-        }
+        } else if(view.getId() == R.id.btnOkRating){
+            mDataSanGolf.child(phone).setValue(ratingForUser.getRating());
+            Toast.makeText(getActivity(), "Số sao đánh giá của bạn là: "+ratingForUser.getRating()+"\nCảm ơn bạn đã đánh giá!", Toast.LENGTH_SHORT).show();
+            soSao=0;
+
+            mDataSanGolf.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Log.d("kiemtra", dataSnapshot.getChildrenCount()+"");
+                    for(DataSnapshot child: dataSnapshot.getChildren()){
+                        if(!child.getKey().equals("StarTB")){
+                            soSao = soSao + Float.valueOf(child.getValue().toString());
+                        }
+                    }
+                    float soTaiKhoanDanhGia = (float) (dataSnapshot.getChildrenCount()-1);
+                    float soSaoTBNew = soSao/soTaiKhoanDanhGia;
+                    mDataSanGolf.child("StarTB").setValue(soSaoTBNew+"");
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+  }
     }
 
     @Override
@@ -242,7 +290,7 @@ public class InfoEachItemFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void unLiked(LikeButton likeButton) {
-        final String phone = mAuth.getCurrentUser().getPhoneNumber().toString();
+        phone = mAuth.getCurrentUser().getPhoneNumber().toString();
         mData.child("User").child(phone).child("sanGolfDaLike").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

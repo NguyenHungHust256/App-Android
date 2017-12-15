@@ -88,6 +88,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     mData.child("SanGolf").child(mien[i]).child(tinh[j]).addChildEventListener(new ChildEventListener() {
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                            int key = Integer.valueOf(dataSnapshot.child("Key").getValue().toString());
                             String address = dataSnapshot.child("Address").getValue().toString();
                             String city = dataSnapshot.child("City").getValue().toString();
                             String description = dataSnapshot.child("Description").getValue().toString();
@@ -99,11 +100,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             String phone = dataSnapshot.child("Phone").getValue().toString();
                             String price = dataSnapshot.child("Price").getValue().toString();
                             String service = dataSnapshot.child("Service").getValue().toString();
-                            int star = Integer.valueOf(dataSnapshot.child("Star").getValue().toString());
+                            float star = Float.valueOf(dataSnapshot.child("Star").child("StarTB").getValue().toString());
                             String website = dataSnapshot.child("Website").getValue().toString();
                             String avatar = dataSnapshot.child("avatar").getValue().toString();
+                            String Mien = dataSnapshot.child("Mien").getValue().toString();
+                            String tenTinh = dataSnapshot.child("Tinh").getValue().toString();
 
-                            SanGolfModel sanGolf = new SanGolfModel(address, city, description, image, latitude, longtitude, like, name, phone, price, service, star, website, avatar);
+                            SanGolfModel sanGolf = new SanGolfModel(address, city, description, image, latitude, longtitude, like, name, phone, price, service, star, website, avatar,Mien, tenTinh, key);
                             if(mSuggestions.size()<45){
                                 mSuggestions.add(new Suggestion(sanGolf.getName(), sanGolf));
                             }
